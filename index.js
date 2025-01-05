@@ -4,9 +4,9 @@ const cors = require('cors');
 const app = express();
 const taskRoute = require('./routes/task.route');
 
-const mongoURI = 'mongodb://localhost:27017/task';
+require('dotenv').config();
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log('MongoDB connection error: ', err));
 
